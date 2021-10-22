@@ -36,15 +36,23 @@
       height: 100px;
       margin-top: -2px;
 
-      .movieName{
+      .movieTitle{
          font-size: 18px;
          margin: 10px 0 5px 0;
+         max-width: 160px;
+         text-align: center;
+         white-space: nowrap; 
+         overflow: hidden; 
+         text-overflow: ellipsis;
+         height: 20px;
+        
       }
       .movieInfo{
          display: flex;
          flex-direction: column;
 
          .movieDetails{
+            display: flex;
             margin-bottom: 10px;
             
             .rating{

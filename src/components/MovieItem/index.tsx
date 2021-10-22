@@ -2,35 +2,61 @@ import styles from './styles.module.scss';
 import mockImage from '../../assets/mock.jpg';
 import { BsFillHeartFill, BsStarFill } from 'react-icons/bs';
 
+type MovieProps={
+   id: number;
+   release_date: string;
+   title: string;
+   vote_average: number;
+   genres: [];
+   poster_path: string;
+}
 
-export function MovieItem() {
+
+export function MovieItem( props: MovieProps) {
+
    return (
       <>
-         <li className={styles.movieItem}>
+         <li className={styles.movieItem} >
             <div className={styles.movieItemTop}>
                <div
                   className={styles.movieCover}
                   style={{
-                     backgroundImage: `url("https://i.imgur.com/sohWhy9.png")`
+                     backgroundImage: `
+                        url("https://image.tmdb.org/t/p/original${props.poster_path}")
+                     `
                   }}>
                   {/* <img src={mockImage}></img> */}
-                  <BsFillHeartFill size={30} className={styles.favourite} />
+                  <BsFillHeartFill 
+                     size={30} 
+                     className={styles.favourite} 
+                     title="Adicionar aos favoritos"
+                     
+                  />
                   <p className={styles.movieRelease}>
-                     7 de Janeiro, 2019
+                     {props.release_date}
                   </p>
                </div>
             </div>
             <div className={styles.movieBottom}>
-               <strong className={styles.movieName}>Nome do Filme</strong>
+               <div
+                  className={styles.movieTitle}
+               >
+                  <strong>
+                     {props.title }
+                  </strong>
+               </div>
                <div className={styles.movieInfo}>
                   <div className={styles.movieDetails}>
                      <span className={styles.rating}>
                         <BsStarFill />
-                        7
+                        {props.vote_average}
                      </span>
-                     <span className={styles.genre}>
-                        Gênero
-                     </span>
+                     <details>
+                        <summary>Gênero</summary>
+                        {props.genres.map(genre => {
+                           return <summary>{genre['name']}</summary>
+                        })}
+                     </details>
                   </div>
                   <div className={styles.price}>
                      R$ 79,99
