@@ -1,18 +1,16 @@
 import styles from './styles.module.scss';
 import mockImage from '../../assets/mock.jpg';
 import { BsFillHeartFill, BsStarFill } from 'react-icons/bs';
+import Movie from '../../types/movie';
 
-type MovieProps={
-   id: number;
-   release_date: string;
-   title: string;
-   vote_average: number;
-   genres: [];
-   poster_path: string;
-}
+import {useFavourite} from '../../context/favourite';
+import { useShoppingCart } from '../../context/shoppingCart';
 
 
-export function MovieItem( props: MovieProps) {
+export function MovieItem( movie: Movie) {
+
+   const { addFavourite } = useFavourite();
+   const { addMovie } = useShoppingCart();
 
    return (
       <>
@@ -22,18 +20,21 @@ export function MovieItem( props: MovieProps) {
                   className={styles.movieCover}
                   style={{
                      backgroundImage: `
-                        url("https://image.tmdb.org/t/p/original${props.poster_path}")
+                        url("https://image.tmdb.org/t/p/original${movie.poster_path}")
                      `
                   }}>
                   {/* <img src={mockImage}></img> */}
-                  <BsFillHeartFill 
-                     size={30} 
+                  <button
                      className={styles.favourite} 
                      title="Adicionar aos favoritos"
-                     
-                  />
+                     onClick={() => addFavourite(movie)}
+                  >
+                     <BsFillHeartFill 
+                        size={30} 
+                     />
+                  </button>
                   <p className={styles.movieRelease}>
-                     {props.release_date}
+                     {movie.release_date}
                   </p>
                </div>
             </div>
@@ -42,21 +43,22 @@ export function MovieItem( props: MovieProps) {
                   className={styles.movieTitle}
                >
                   <strong>
-                     {props.title }
+                     {movie.title }
                   </strong>
                </div>
                <div className={styles.movieInfo}>
                   <div className={styles.movieDetails}>
                      <span className={styles.rating}>
                         <BsStarFill />
-                        {props.vote_average}
+                        <span 
+                           aria-details='Nota média do filme'
+                        >
+                           {movie.vote_average}
+                        </span>
                      </span>
-                     <details>
-                        <summary>Gênero</summary>
-                        {props.genres.map(genre => {
-                           return <summary>{genre['name']}</summary>
-                        })}
-                     </details>
+                     <span>
+                        {movie.genres[0].name}
+                     </span>
                   </div>
                   <div className={styles.price}>
                      R$ 79,99
@@ -65,6 +67,7 @@ export function MovieItem( props: MovieProps) {
             </div>
                <button
                   className={styles.button}
+                  onClick={() => addMovie(movie)}
                >
                   Adicionar
                </button>

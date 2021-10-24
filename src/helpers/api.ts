@@ -1,15 +1,7 @@
 import { api } from '../services/api';
+import Movie from '../types/movie';
 
 const API_KEY = '0b3ff2cdec0e0618fbe13963e03a123f';
-
-type Movie = {
-   id: number;
-   release_date: string;
-   title: string;
-   vote_average: number;
-   genres: [];
-   poster_path: string;
-}
 
 /**
  * Função responsável por obter uma lista de filmes de acordo com um query

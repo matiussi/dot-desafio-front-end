@@ -1,0 +1,75 @@
+
+.sideCard{
+   height: 100vh;
+   width: 100%;
+   position: absolute;
+   background-color: #fff;
+   z-index: 3;
+   border: 2px solid #c3cfd9;
+}
+.sideCardTop{
+   display: flex;
+   justify-content: space-between;
+   margin: 20px;
+   p{
+      font-size: 20px;
+   }
+   button{
+      color: #6558f5;
+      text-decoration: underline;
+   }
+}
+.sideCardWrapper{
+   margin: 10px 20px;
+   .movie{
+      height: 40px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+
+      .movieLogo{
+         width: 40px;
+         height: 40px;
+         margin-right: 10px;
+   
+         img{
+            height: 100%;
+            width: 100%;
+         }
+      }
+      .movieInfoWrapper{
+         width: 100%;
+         display: flex;
+         align-items: center;
+         .movieTitle{
+            flex-grow: 1;
+            width: 40%;
+            margin-right: 10px;
+         }
+         .price{
+            margin: 0px 20px 0px 10px;
+         }
+
+      }
+      .iconWrapper{
+         display: flex;
+         justify-content: flex-end;
+         flex-grow: 1;
+         .shoppingCartIcon{
+            color:#1aae9f;
+            margin-right: 10px;
+         }
+         .trashIcon{
+            color: #4b5c6b;
+         }
+      }
+   }
+}
+
+@media screen and(min-width: 768px) {
+   .sideCard{
+      width: 330px;
+      right: 0;
+      
+   }
+}

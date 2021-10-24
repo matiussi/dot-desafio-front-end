@@ -37,7 +37,6 @@
       margin-top: -2px;
 
       .movieTitle{
-         font-size: 18px;
          margin: 10px 0 5px 0;
          max-width: 160px;
          text-align: center;
@@ -45,7 +44,11 @@
          overflow: hidden; 
          text-overflow: ellipsis;
          height: 20px;
-        
+
+         strong{
+            font-size: 15px;
+         }
+                 
       }
       .movieInfo{
          display: flex;
@@ -57,7 +60,7 @@
             
             .rating{
                margin-right: 10px;
-             
+               font-weight: bold;
                svg{
                   margin-right: 5px;
                }

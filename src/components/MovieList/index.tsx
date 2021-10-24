@@ -1,18 +1,10 @@
 import styles from './styles.module.scss';
 import { MovieItem } from '../MovieItem';
-import { api } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { getMovies } from '../../helpers/api';
 import { useSearch } from '../../context/search';
+import Movie from '../../types/movie';
 
-type Movie = {
-   id: number;
-   release_date: string;
-   title: string;
-   vote_average: number;
-   genres: [];
-   poster_path: string;
-}
 
 export function MovieList() {
 
@@ -41,8 +33,6 @@ export function MovieList() {
 
    return (
       <ul className={styles.movieList}>
-         {/* <button onClick={() => getLatestMovies()}>Button</button> */}
-         {/* <button onClick={() => consoleMovies()}>COnsole movies</button> */}
          { movieList.map((movie) => {
             return ( 
                <MovieItem
@@ -60,7 +50,5 @@ export function MovieList() {
       </ul>
    )
 }
-function getLatestMovies(arg0: string) {
-   throw new Error('Function not implemented.');
-}
+
 
