@@ -45,6 +45,7 @@ export function ShoppingCart() {
                               <button
                                  className={scopedStyles.trashIcon}
                                  onClick={() => removeMovie(movie)}
+                                 title="Remover do carrinho"
                               >
                                  <BsTrashFill size={20} />
                               </button>
@@ -62,6 +63,7 @@ export function ShoppingCart() {
                   </div>
                   <button
                      className={button.button}
+                     style={{fontSize: 18, height: 45}}
                   >
                      Finalizar compra
                   </button>

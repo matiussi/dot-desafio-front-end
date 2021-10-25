@@ -2,16 +2,12 @@ import { createContext, ReactNode, useContext, useState } from "react";
 import Movie from '../types/movie';
 
 
-// type Favourite = {
-//    movie: Movie;
-// }
 type PropsFavouritesContext = {
    favourite: Movie[] | null;
    addFavourite: (movie: Movie) => void
    removeFavourite: (movie: Movie) => void;
    clearFavourites: () => void;
    addToShoppingCart: (movie: Movie) => void;
-   // isActive: boolean;
 }
 
 type FavouritesProvider = {
@@ -55,7 +51,6 @@ export const FavouriteContextProvider = (props: FavouritesProvider ) =>{
             removeFavourite,
             clearFavourites,
             addToShoppingCart,
-            // isActive
          }}
       >
          {props.children}

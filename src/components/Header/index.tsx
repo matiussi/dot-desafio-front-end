@@ -20,7 +20,6 @@ export function Header() {
 
    const [toggleFavourite, setToggleFavourite] = useState<boolean>(false);
    const [toggleShoppingCart, setToggleShoppingCart] = useState<boolean>(false);
-   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
    async function handleSearchMovie(event: FormEvent<HTMLFormElement>) {
       event.preventDefault();

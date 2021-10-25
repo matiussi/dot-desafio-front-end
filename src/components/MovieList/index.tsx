@@ -17,7 +17,7 @@ export function MovieList() {
    const { search } = useSearch();
 
    useEffect(() => {
-      /* Realizando um requisição para a API e obtendo os filmes mais populares
+      /* Realizando uma requisição para a API e obtendo os filmes mais populares
          no primeiro carregamento */
       async function fetchData() {
          setLoading(true);

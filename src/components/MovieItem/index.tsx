@@ -9,11 +9,18 @@ import {useFavourite} from '../../context/favourite';
 import { useShoppingCart } from '../../context/shoppingCart';
 
 
-
 export function MovieItem( movie: Movie) {
 
    const { addFavourite } = useFavourite();
    const { addMovie } = useShoppingCart();
+
+   function dateFormat(){
+      const dateSplit = movie.release_date.split('-');
+      const newDate = new Date (parseInt(dateSplit[2]), parseInt(dateSplit[1])-1, parseInt(dateSplit[0]));
+      const month = newDate.toLocaleString('default', { month: 'long' });
+
+      return `${dateSplit[2]} de ${month}, ${dateSplit[0]}`;
+   }
 
    return (
       <>
@@ -30,7 +37,6 @@ export function MovieItem( movie: Movie) {
                      :
                      {backgroundImage: `url(${imageNotFound})`}
                   }>
-                  {/* <img src={mockImage}></img> */}
                   <button
                      className={styles.favourite} 
                      title="Adicionar aos favoritos"
@@ -41,7 +47,7 @@ export function MovieItem( movie: Movie) {
                      />
                   </button>
                   <p className={styles.movieRelease}>
-                     {movie.release_date}
+                     {dateFormat()}
                   </p>
                </div>
             </div>

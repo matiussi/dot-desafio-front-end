@@ -54,6 +54,11 @@
          position: absolute;
          right: 0;
          padding-right: 8px;
+         
+         &:hover{
+            -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+         }
 
       }
    }
@@ -62,6 +67,10 @@
       align-items: center;
       justify-content: center;
       
+      button:hover{
+         -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+         animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      }
       button:first-of-type{
          margin-right: 20px;
       }
@@ -103,3 +112,25 @@
       }
    }
 }
+
+ @-webkit-keyframes scale-up-center {
+   0% {
+     -webkit-transform: scale(1);
+             transform: scale(1);
+   }
+   100% {
+     -webkit-transform: scale(1.2);
+             transform: scale(1.2);
+   }
+ }
+ @keyframes scale-up-center {
+   0% {
+     -webkit-transform: scale(1);
+             transform: scale(1);
+   }
+   100% {
+     -webkit-transform: scale(1.2);
+             transform: scale(1.2);
+   }
+ }
+ 

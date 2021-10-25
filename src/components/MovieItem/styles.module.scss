@@ -42,10 +42,15 @@
          max-width: 160px;
          text-align: center;
          white-space: nowrap; 
-         overflow: hidden; 
-         text-overflow: ellipsis;
+         overflow-x: auto; 
          height: 20px;
+         -ms-overflow-style: none; 
+         scrollbar-width: none;
+         animation: fade-in 0.5s linear;
 
+         &::-webkit-scrollbar {
+            display: none;
+         }
          strong{
             font-size: 15px;
          }

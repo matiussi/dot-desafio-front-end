@@ -32,7 +32,7 @@ export const ShoppingCartContextProvider = (props: ShoppingCartProvider) => {
 
          /* Para que a quantidade de filmes seja atualizada corretamente,
             primeiro será criado um vetor auxiliar que receberá uma cópia 
-            do estado shoppingCart, em seguida o valor a ser atualizada será buscado e atualizado,
+            do estado shoppingCart, em seguida o item será buscado e tera sua quantidade atualizada,
             por último o estado shoppingCart receberá o vetor auxiliar
          */
          const auxShoppingCart = [...shoppingCart];

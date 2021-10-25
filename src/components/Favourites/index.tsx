@@ -10,7 +10,7 @@ export function Favourites() {
    const { addMovie } = useShoppingCart();
 
    return (
-      <aside >
+      <aside>
          <div className={styles.sideCard}>
             <div className={styles.sideCardTop}>
                <p>Meus Favoritos</p>
@@ -38,12 +38,14 @@ export function Favourites() {
                                  <button
                                     className={styles.shoppingCartIcon}
                                     onClick={() => addMovie(movie, 1)}
+                                    title={'Adicionar ao carrinho'}
                                  >
                                     <BsFillCartFill size={20} />
                                  </button>
                                  <button
                                     className={styles.trashIcon}
                                     onClick={() => removeFavourite(movie)}
+                                    title={'Remover favorito'}
                                  >
                                     <BsTrashFill size={20} />
                                  </button>
