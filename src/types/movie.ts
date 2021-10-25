@@ -8,6 +8,7 @@ type Movie = {
       name: string;
    }];
    poster_path: string;
+   price: number;
 }
 
 export default Movie;

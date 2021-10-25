@@ -14,7 +14,6 @@ export async function getMovies(query : string) {
     *  Filtrando apenas o id pois a demais informações de um filme
     *  serão realizadas em outra requisição
    */
-  
    let movieList : Movie[] = [];
    for (let movie of fetchedMovies.keys()) {
       let { id } = fetchedMovies[movie];
@@ -42,12 +41,18 @@ async function getMovieInfo(movieId: number) {
       poster_path 
    } : Movie = data;
 
+   /* A API não fornece informação sobre os valores dos filmes 
+      então cada filme terá um valor gerado aleatoriamente entre 20 e 200
+   */   
+   const price = parseFloat(((Math.random() * (200 - 20)) + 20).toFixed(2)); 
+
    const movie: Movie = {
       id, 
       release_date, 
       title, vote_average, 
       genres,
-      poster_path 
+      poster_path,
+      price: price
    }
 
    return movie;

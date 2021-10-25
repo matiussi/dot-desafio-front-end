@@ -2,6 +2,7 @@
    width: 180px;
    height: 350px;
    font-size: 14px;
+   animation: fade-in 1s linear;
    
    .movieCover{
       height: 200px;
@@ -73,18 +74,10 @@
          }
       }
    }
-   .button{
-      all: unset;
-      color: #fff;
-      background-color: #6558f5;
-      width: 100%;
-      height: 45px;
-      border-radius: 2px;
-      margin-top: -2px;
+  
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-   }
+@keyframes fade-in {
+   0% {opacity: 0}
+   100% {opacity: 1}
 }

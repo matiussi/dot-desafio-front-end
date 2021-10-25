@@ -1,99 +1,106 @@
 import styles from './styles.module.scss';
 import { BsSearch, BsFillHeartFill, BsFillCartFill } from 'react-icons/bs';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { useState, FormEvent } from 'react';
-import {ShoppingCart} from '../ShoppingCart';
+import { ShoppingCart } from '../ShoppingCart';
 import { getMovies } from '../../helpers/api';
 
-import {useSearch} from '../../context/search';
+import { useSearch } from '../../context/search';
 import { Favourites } from '../Favourites';
+import { useShoppingCart } from '../../context/shoppingCart';
 
 
 export function Header() {
 
-   //Estado que armazena o valor digitado pelo usuário
+   //Estado que armazena o valor digitado pelo usuário na barra de busca
    const [query, setQuery] = useState('');
 
-   const {setSearch} = useSearch();
+   const { setSearch } = useSearch();
+   const { getNumberOfMovies } = useShoppingCart();
 
    const [toggleFavourite, setToggleFavourite] = useState<boolean>(false);
    const [toggleShoppingCart, setToggleShoppingCart] = useState<boolean>(false);
+   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
-   async function handleSearchMovie(event: FormEvent<HTMLFormElement>){
+   async function handleSearchMovie(event: FormEvent<HTMLFormElement>) {
       event.preventDefault();
-      
-      if(query !== ''){
-         
+
+      if (query !== '') {
+
          getMovies(`/search/movie?query=${query}`);
          setSearch({
             query: query
          })
       }
    }
-   function handleToggleFavourite(){
-      if(toggleShoppingCart){
+   function handleToggleFavourite() {
+      if (toggleShoppingCart) {
          setToggleShoppingCart(false);
          setToggleFavourite(true);
-      }else{
+      } else {
          setToggleFavourite(!toggleFavourite);
 
       }
    }
-   function handleToggleShoppingCart(){
-      if(toggleFavourite){
+   function handleToggleShoppingCart() {
+      if (toggleFavourite) {
          setToggleFavourite(false);
          setToggleShoppingCart(true);
-      }else{
+      } else {
          setToggleShoppingCart(!toggleShoppingCart);
       }
    }
    return (
       <>
-      <header className={styles.header}>
-         <div className={styles.headerWrapper}>
-            <span className={styles.logo}>LOGO</span>
-            <form
-               role='search'
-               className={styles.searchbarWrapper}
-               onSubmit={(event) => handleSearchMovie(event)}
-            >
-               <input
-                  type="text"
-                  name="searchbar"
-                  id="searchbar"
-                  placeholder='Pesquisa'
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-               />
-               <button
-                  className={styles.searchIcon}
-                  title='Pesquisar'
-                  type='submit'
+         <header className={styles.header}>
+            <div className={styles.headerWrapper}>
+               <span className={styles.logo}>LOGO</span>
+               <form
+                  role='search'
+                  className={styles.searchbarWrapper}
+                  onSubmit={(event) => handleSearchMovie(event)}
                >
-                  <BsSearch size={16} />
-               </button>
-            </form>
-            <nav className={styles.iconWrapper}>
-               <button 
-                  title='Filmes favoritos'
-                  onClick={() => handleToggleFavourite()}
-               >
-                  <BsFillHeartFill
-                     size={24}
+                  <input
+                     type="text"
+                     name="searchbar"
+                     id="searchbar"
+                     placeholder='Pesquisa'
+                     value={query}
+                     onChange={(event) => setQuery(event.target.value)}
                   />
-               </button>
-               <button title='Carrinho de compras'
-                  onClick={() => handleToggleShoppingCart()}
-               >
-                  <BsFillCartFill
-                     size={24}
-                  />
-               </button>
-            </nav>
-         </div>
-      </header>
-      {toggleFavourite ? <Favourites /> : null}
-      {toggleShoppingCart ? <ShoppingCart /> : null}
-      
+                  <button
+                     className={styles.searchIcon}
+                     title='Pesquisar'
+                     type='submit'
+                  >
+                     <BsSearch size={16} />
+                  </button>
+               </form>
+               <div className={styles.iconWrapper}>
+                  <button
+                     title='Filmes favoritos'
+                     onClick={() => handleToggleFavourite()}
+                  >
+                     <BsFillHeartFill
+                        size={24}
+                     />
+                  </button>
+                  <button title='Carrinho de compras'
+                     onClick={() => handleToggleShoppingCart()}
+                  >
+                     <BsFillCartFill
+                        size={24}
+                     />
+                     <span className={styles.numberOfMovies}>
+                        {getNumberOfMovies()}
+                     </span>
+                  </button>
+               </div>
+            </div>
+         </header>
+         {toggleFavourite ? <Favourites /> : null}
+         {toggleShoppingCart ? <ShoppingCart /> : null}
+
       </>
    )
 }

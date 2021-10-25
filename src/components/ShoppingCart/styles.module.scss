@@ -1,3 +1,26 @@
+.trashIcon{
+   width: 30px;
+   height: 30px;
+   color: #4b5c6b;
+}
 .quantity{
    margin: 0px 8px 0px 8px;
+}
+.bottom{
+   height: 100px;
+   margin: 10px 20px;
+   .total{
+      display: flex;
+      align-items: center;
+      
+      margin-bottom: 25px;
+      p{
+         font-size: 18px;
+         flex-grow: 1;
+      }
+      strong{
+         font-size: 22px;
+         justify-self: flex-end;
+      }
+   }
 }

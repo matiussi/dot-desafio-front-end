@@ -1,11 +1,14 @@
 
 .sideCard{
-   height: 100vh;
+   height: calc(100vh - 60px);
    width: 100%;
    position: absolute;
    background-color: #fff;
    z-index: 3;
    border: 2px solid #c3cfd9;
+   display: flex;
+   flex-direction: column;
+
 }
 .sideCardTop{
    display: flex;
@@ -21,6 +24,8 @@
 }
 .sideCardWrapper{
    margin: 10px 20px;
+   flex-grow: 1;
+   overflow: scroll;
    .movie{
       height: 40px;
       margin-bottom: 10px;
@@ -47,7 +52,9 @@
             margin-right: 10px;
          }
          .price{
-            margin: 0px 20px 0px 10px;
+            margin: 0px 20px 0px 0px;
+            width: 80px;
+            text-align: right;
          }
 
       }
@@ -60,7 +67,10 @@
             margin-right: 10px;
          }
          .trashIcon{
+            width: 30px;
+            height: 30px;
             color: #4b5c6b;
+            
          }
       }
    }
@@ -70,6 +80,12 @@
    .sideCard{
       width: 330px;
       right: 0;
-      
    }
 }
+
+// @media screen and(min-width: 1200px) {
+//    .sideCard{
+//       position: relative;
+//       right: 0;
+//    }
+// }  

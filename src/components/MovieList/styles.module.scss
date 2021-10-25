@@ -12,6 +12,19 @@
    }
 }
 
+.loading{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 200px;
+   animation: rotate-spinner 2s infinite;
+   
+}
+@keyframes rotate-spinner {
+   0% {transform: rotate(0deg);}
+   100% {transform: rotate(360deg)}
+}
+
 @media screen and (min-width: 800px){
    .movieList{
       & > * {

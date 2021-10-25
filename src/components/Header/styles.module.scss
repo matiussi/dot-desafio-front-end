@@ -4,10 +4,11 @@
    color: white;
 
    height: 60px;
-   padding: 0 20px;
+   padding: 0 10px;
    display: flex;
    align-items: center;
    justify-content: center;
+   position: relative;
    
    .headerWrapper{
       width: 100%;
@@ -19,6 +20,9 @@
    .logo{
       font-size: 20px;
       font-weight: bold;
+   }
+   .hamburguerMenu{
+
    }
    .searchbarWrapper{
       background-color: #fff;
@@ -32,7 +36,7 @@
       height: 40px;
       border: 2px solid #97bec3;
       border-radius: 4px;
-      width: 40%;
+      width: 50%;
       max-width: 400px;
 
       input{
@@ -57,16 +61,45 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      button{
+      
+      button:first-of-type{
          margin-right: 20px;
       }
    }
 }
-
+.numberOfMovies{
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: #fbe192;
+   font-size: 12px;
+   color:#4b5c6b;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   left: -6px;
+   top: -8px;
+}
 @media screen and (min-width: 768px) {
    .header{
       padding: 0 40px;
-      
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .hamburguerMenu{
+         display: none;
+      }
+   }
+   aside{
+      margin-top: 60px;
+   }
+   main{
+      margin-top: 100px;
+
+      .movieList{
+         margin-top: 0px;
+      }
    }
 }

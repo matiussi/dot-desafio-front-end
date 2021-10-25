@@ -8,6 +8,10 @@
 
 body {
    color: #4b5c6b;
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
 }
 
 main{
@@ -32,6 +36,12 @@ button{
 }
 
 #root{
-   height: 100vh;
+   max-width: 1200px;
    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+   aside{
+      position: relative;
+   }
 }

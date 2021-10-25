@@ -1,10 +1,13 @@
 import styles from './styles.module.scss';
-import mockImage from '../../assets/mock.jpg';
+import button from '../../styles/button.module.scss';
 import { BsFillHeartFill, BsStarFill } from 'react-icons/bs';
+import imageNotFound from '../../assets/notfound.png';
+
 import Movie from '../../types/movie';
 
 import {useFavourite} from '../../context/favourite';
 import { useShoppingCart } from '../../context/shoppingCart';
+
 
 
 export function MovieItem( movie: Movie) {
@@ -18,11 +21,15 @@ export function MovieItem( movie: Movie) {
             <div className={styles.movieItemTop}>
                <div
                   className={styles.movieCover}
-                  style={{
-                     backgroundImage: `
-                        url("https://image.tmdb.org/t/p/original${movie.poster_path}")
-                     `
-                  }}>
+                  style={movie.poster_path ?
+                     {
+                        backgroundImage: `
+                           url("https://image.tmdb.org/t/p/original${movie.poster_path}")
+                        `
+                     }
+                     :
+                     {backgroundImage: `url(${imageNotFound})`}
+                  }>
                   {/* <img src={mockImage}></img> */}
                   <button
                      className={styles.favourite} 
@@ -50,24 +57,22 @@ export function MovieItem( movie: Movie) {
                   <div className={styles.movieDetails}>
                      <span className={styles.rating}>
                         <BsStarFill />
-                        <span 
-                           aria-details='Nota média do filme'
-                        >
+                        <span>
                            {movie.vote_average}
                         </span>
                      </span>
                      <span>
-                        {movie.genres[0].name}
+                        {movie.genres[0] ? movie.genres[0].name : 'Gênero'}
                      </span>
                   </div>
                   <div className={styles.price}>
-                     R$ 79,99
+                     R$ {movie.price.toFixed(2).replace('.', ',')}
                   </div>
                </div>
             </div>
                <button
-                  className={styles.button}
-                  onClick={() => addMovie(movie)}
+                  className={button.button}
+                  onClick={() => addMovie(movie, 1)}
                >
                   Adicionar
                </button>
