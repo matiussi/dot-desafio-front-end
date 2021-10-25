@@ -67,7 +67,7 @@ $ git clone https://github.com/matiussi/dot-desafio-front-end
 $ npm install
 
 # Executando a aplicação
-$ npm run serve
+$ npm run dev
 ```
 
  
