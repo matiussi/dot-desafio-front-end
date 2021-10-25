@@ -24,13 +24,13 @@ O desafio consiste em implementar uma loja de filmes com funcionalidades básica
 
 ### Tecnologias utilizadas
 
-- [Axios](#https://github.com/axios/axios)
-- [React.js](#https://pt-br.reactjs.org/)
-- [React Router](#https://reactrouter.com/)
-- [React Icons](#https://reactrouter.com/)
-- [SASS](#https://sass-lang.com/)
-- [Typescript](#https://www.typescriptlang.org/)
-- [Vite](#https://vitejs.dev/)
+- [Axios](https://github.com/axios/axios)
+- [React.js](https://pt-br.reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [React Icons](https://reactrouter.com/)
+- [SASS](https://sass-lang.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
 
 ## Desafio
 
