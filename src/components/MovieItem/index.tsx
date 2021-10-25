@@ -21,7 +21,6 @@ export function MovieItem( movie: Movie) {
 
       return `${dateSplit[2]} de ${month}, ${dateSplit[0]}`;
    }
-
    return (
       <>
          <li className={styles.movieItem} >
@@ -68,7 +67,7 @@ export function MovieItem( movie: Movie) {
                         </span>
                      </span>
                      <span>
-                        {movie.genres[0] ? movie.genres[0].name : 'Gênero'}
+                        {movie.genre ? movie.genre.name : 'Sem gênero'}
                      </span>
                   </div>
                   <div className={styles.price}>

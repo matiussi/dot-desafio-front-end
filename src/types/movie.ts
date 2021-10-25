@@ -3,10 +3,10 @@ type Movie = {
    release_date: string;
    title: string;
    vote_average: number;
-   genres: [{
+   genre: {
       id: number;
       name: string;
-   }];
+   } | null;
    poster_path: string;
    price: number;
 }

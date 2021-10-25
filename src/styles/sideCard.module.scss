@@ -1,5 +1,4 @@
-
-.sideCard{
+.sideCard {
    height: calc(100vh - 60px);
    width: 100%;
    position: absolute;
@@ -9,89 +8,84 @@
    display: flex;
    flex-direction: column;
 }
-.sideCardTop{
+.sideCardTop {
    display: flex;
    justify-content: space-between;
    margin: 20px;
-   p{
+   p {
       font-size: 20px;
    }
-   button{
+   button {
       color: #6558f5;
       text-decoration: underline;
    }
 }
-.sideCardWrapper{
+.sideCardWrapper {
    margin: 10px 20px;
    flex-grow: 1;
    overflow-y: scroll;
-   -ms-overflow-style: none; 
+   -ms-overflow-style: none;
    scrollbar-width: none;
    animation: fade-in 0.5s linear;
 
    &::-webkit-scrollbar {
       display: none;
    }
-   
-   .movie{
-      height: 40px;
+
+   .movie {
       margin-bottom: 10px;
       display: flex;
       align-items: center;
 
-      .movieLogo{
-         width: 40px;
-         height: 40px;
+      .movieLogo {
          margin-right: 10px;
-   
-         img{
-            height: 100%;
-            width: 100%;
+         img {
+            width: 35px;
+            height: 35px;
          }
       }
-      .movieInfoWrapper{
+      .movieInfoWrapper {
          width: 100%;
          display: flex;
          align-items: center;
-         .movieTitle{
+         .movieTitle {
             flex-grow: 1;
             width: 40%;
             margin-right: 10px;
-            max-height: 40px;
-            overflow-y: auto;
-            
          }
-         .price{
+         .price {
             margin: 0px 20px 0px 0px;
             width: 80px;
             text-align: right;
          }
-
       }
-      .iconWrapper{
+      .iconWrapper {
          display: flex;
          justify-content: flex-end;
          flex-grow: 1;
-         .shoppingCartIcon{
-            color:#1aae9f;
+         .shoppingCartIcon {
+            color: #1aae9f;
             margin-right: 10px;
          }
-         .trashIcon{
+         .trashIcon {
             width: 30px;
             height: 30px;
             color: #4b5c6b;
-            
          }
       }
    }
 }
 
 @keyframes fade-in {
-   0% {opacity: 0}
-   100% {opacity: 1}
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
 }
 @media screen and(min-width: 768px) {
-   .sideCard{
+   .sideCard {
       width: 330px;
       right: 0;
    }
@@ -102,4 +96,4 @@
 //       position: relative;
 //       right: 0;
 //    }
-// }  
+// }
