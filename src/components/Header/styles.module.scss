@@ -1,3 +1,5 @@
+@import '../../styles/animations.scss';
+
 .header{
    width: 100%;
    background-color: #8dd7cf;
@@ -17,24 +19,25 @@
       align-items: center;
       justify-content: space-between;
    }
+   a{
+      width: unset;
+   }
    .logo{
       font-size: 20px;
       font-weight: bold;
-   }
-   .hamburguerMenu{
-
    }
    .searchbarWrapper{
       background-color: #fff;
       color: #4b5c6b;
       font-weight: medium;
+      font-size: 16px;
       
       display: flex;
       align-items: center;
       position: relative;
       width: 200px;
       height: 40px;
-      border: 2px solid #97bec3;
+      border: 2px solid #c5ced6;
       border-radius: 4px;
       width: 50%;
       max-width: 400px;
@@ -43,8 +46,7 @@
          all: unset;
          padding: 10px;
          width: 100%;
-         box-shadow: 0 0 0 4px transparent;
-         
+      
          &:focus{
             outline: none;
             box-shadow: 0 0 0 4px rgba(101, 88, 245, 0.6);
@@ -97,9 +99,6 @@
       top: 0;
       left: 0;
 
-      .hamburguerMenu{
-         display: none;
-      }
    }
    aside{
       margin-top: 60px;
@@ -113,24 +112,5 @@
    }
 }
 
- @-webkit-keyframes scale-up-center {
-   0% {
-     -webkit-transform: scale(1);
-             transform: scale(1);
-   }
-   100% {
-     -webkit-transform: scale(1.2);
-             transform: scale(1.2);
-   }
- }
- @keyframes scale-up-center {
-   0% {
-     -webkit-transform: scale(1);
-             transform: scale(1);
-   }
-   100% {
-     -webkit-transform: scale(1.2);
-             transform: scale(1.2);
-   }
- }
+ 
  

@@ -48,18 +48,11 @@ export function MovieList() {
                movieList.map((movie) => {
                   return (
                      <MovieItem
+                        {...movie}
                         key={movie.id}
-                        id={movie.id}
-                        release_date={movie.release_date}
-                        title={movie.title}
-                        vote_average={movie.vote_average}
-                        genre={movie.genre}
-                        poster_path={movie.poster_path}
-                        price={movie.price}
                      />
                   );
-               }
-               )
+               })
                :
                <div className={styles.loading}>
                   <FaSpinner size={32} />

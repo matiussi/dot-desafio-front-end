@@ -12,6 +12,8 @@ type PropsShoppingCartContext = {
    clearShoppingCart: () => void;
    getNumberOfMovies: () => number;
    getTotalValue: () => number;
+   cartActive: boolean,
+   handleCartActive: (value: boolean) => void;
 }
 
 type ShoppingCartProvider = {
@@ -23,6 +25,11 @@ const ShoppingCartContext = createContext({} as PropsShoppingCartContext);
 export const ShoppingCartContextProvider = (props: ShoppingCartProvider) => {
 
    const [shoppingCart, setShoppingCart] = useState<ShoppingCartMovie[] | []>([]);
+   const [cartActive, setCartActive] = useState(false);
+
+   function handleCartActive(value: boolean){
+      setCartActive(value);
+   }
 
    function addMovie(newMovie: Movie, quantity: number) {
       const checkDuplicate = shoppingCart.filter(movie => {
@@ -92,7 +99,9 @@ return (
          removeMovie,
          clearShoppingCart,
          getNumberOfMovies,
-         getTotalValue
+         getTotalValue,
+         cartActive,
+         handleCartActive
       }}
    >
       {props.children}

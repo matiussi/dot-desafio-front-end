@@ -1,3 +1,6 @@
+
+@import '../../styles//animations.scss';
+
 .movieList{
    display: flex;
    align-items: center;
@@ -5,10 +8,9 @@
    flex-wrap: wrap;
    width: 100%;
    max-width: 1000px;
-   margin-top: 50px;
 
    & > * {
-      margin: 15px 4px;
+      margin: 4px 4px;
    }
 }
 
@@ -16,19 +18,18 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   margin-top: 200px;
+   margin-top: 30vh;
    animation: rotate-spinner 2s infinite;
    
 }
-@keyframes rotate-spinner {
-   0% {transform: rotate(0deg);}
-   100% {transform: rotate(360deg)}
-}
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 768px){
    .movieList{
       & > * {
          margin: 15px 30px;
       }
+   }
+   .loading{
+      margin-top: 30vh;
    }
 }

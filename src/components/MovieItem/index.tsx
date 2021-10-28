@@ -7,6 +7,7 @@ import Movie from '../../types/movie';
 
 import {useFavourite} from '../../context/favourite';
 import { useShoppingCart } from '../../context/shoppingCart';
+import { currency, date } from '../../helpers/format';
 
 
 export function MovieItem( movie: Movie) {
@@ -14,16 +15,9 @@ export function MovieItem( movie: Movie) {
    const { addFavourite } = useFavourite();
    const { addMovie } = useShoppingCart();
 
-   function dateFormat(){
-      const dateSplit = movie.release_date.split('-');
-      const newDate = new Date (parseInt(dateSplit[2]), parseInt(dateSplit[1])-1, parseInt(dateSplit[0]));
-      const month = newDate.toLocaleString('default', { month: 'long' });
-
-      return `${dateSplit[2]} de ${month}, ${dateSplit[0]}`;
-   }
    return (
       <>
-         <li className={styles.movieItem} >
+         <li className={styles.movieItem}>
             <div className={styles.movieItemTop}>
                <div
                   className={styles.movieCover}
@@ -46,7 +40,7 @@ export function MovieItem( movie: Movie) {
                      />
                   </button>
                   <p className={styles.movieRelease}>
-                     {dateFormat()}
+                     {date(movie.release_date)}
                   </p>
                </div>
             </div>
@@ -71,7 +65,7 @@ export function MovieItem( movie: Movie) {
                      </span>
                   </div>
                   <div className={styles.price}>
-                     R$ {movie.price.toFixed(2).replace('.', ',')}
+                     {currency(movie.price)}
                   </div>
                </div>
             </div>

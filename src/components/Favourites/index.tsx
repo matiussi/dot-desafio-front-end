@@ -23,7 +23,6 @@ export function Favourites() {
                      :
                      favourite?.map(movie => {
                         return (
-
                            <li className={styles.movie} key={movie.id}>
                               <div className={styles.movieLogo}>
                                  <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />

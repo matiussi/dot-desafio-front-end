@@ -2,9 +2,8 @@
    padding: 0;
    margin: 0;
    box-sizing: border-box;
-   font-family:  Roboto, sans-serif;
+   font-family: Roboto, sans-serif;
    font-size: 14px;
-   
 }
 
 body {
@@ -13,17 +12,25 @@ body {
    width: 100%;
    display: flex;
    justify-content: center;
-   
 }
 
-main{
+main {
    display: flex;
    justify-content: center;
+   flex-direction: row;
+   align-items: center;
+   margin-top: 30px;
 }
-ul, li{
+ul,
+li {
    list-style: none;
 }
-button{
+a {
+   all: unset;
+   cursor: pointer;
+   width: 100%;
+}
+button {
    all: unset;
    cursor: pointer;
 
@@ -31,19 +38,35 @@ button{
    align-items: center;
    justify-content: center;
 
-   &:focus{
+   &:focus {
       outline: none;
       box-shadow: 0 0 0 4px rgba(101, 88, 245, 0.6);
    }
 }
+input:focus{
+   outline: none;
+   box-shadow: 0 0 0 4px rgba(101, 88, 245, 0.6);
+}
 
-#root{
+#root {
    max-width: 1200px;
    width: 100%;
 }
+@keyframes fade-in {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
 
 @media screen and (min-width: 768px) {
-   aside{
+   main {
+      margin-top: 100px;
+      flex-direction: row;
+   }
+   aside {
       position: relative;
    }
 }

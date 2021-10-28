@@ -4,7 +4,8 @@ import scopedStyles from './styles.module.scss';
 import button from '../../styles/button.module.scss';
 
 import { BsTrashFill } from 'react-icons/bs';
-
+import { Link } from 'react-router-dom';
+import { currency } from '../../helpers/format';
 
 export function ShoppingCart() {
 
@@ -12,7 +13,8 @@ export function ShoppingCart() {
       shoppingCart,
       removeMovie,
       clearShoppingCart,
-      getTotalValue
+      getTotalValue,
+      handleCartActive
    } = useShoppingCart();
 
    return (
@@ -39,7 +41,7 @@ export function ShoppingCart() {
                                  <div className={styles.movieTitle}>{movie.title}</div>
                                  <span className={scopedStyles.quantity}>{quantity}</span>
                                  <span className={styles.price}>
-                                    R$ {(movie.price * quantity).toFixed(2).replace('.', ',')}
+                                    {currency((movie.price * quantity))}
                                  </span>
                               </div>
                               <button
@@ -59,14 +61,17 @@ export function ShoppingCart() {
             :
                <div className={scopedStyles.bottom}>
                   <div className={scopedStyles.total}>
-                     <p>Total:</p><strong>R$ {getTotalValue().toFixed(2).replace('.', ',')}</strong>
+                     <p>Total:</p><strong>{currency(getTotalValue())}</strong>
                   </div>
-                  <button
-                     className={button.button}
-                     style={{fontSize: 18, height: 45}}
-                  >
-                     Finalizar compra
-                  </button>
+                  <Link to="/checkout">
+                     <button
+                        className={button.button}
+                        style={{fontSize: 18, height: 45}}
+                        onClick={() => handleCartActive(false)}
+                     >
+                        Finalizar compra
+                     </button>
+                  </Link>
                </div>
             }
          </div>

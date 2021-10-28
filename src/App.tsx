@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { SearchContextProvider } from './context/search';
 import { FavouriteContextProvider } from './context/favourite';
 import { ShoppingCartContextProvider } from './context/shoppingCart';
+import { Checkout } from './pages/Checkout';
 
 
 function App() {
@@ -16,8 +17,11 @@ function App() {
           <FavouriteContextProvider>
             <Header />
             <Switch>
-              <Route path="/">
+              <Route path="/" exact>
                 <Home />
+              </Route>
+              <Route path="/checkout">
+                <Checkout />
               </Route>
             </Switch>
           </FavouriteContextProvider>

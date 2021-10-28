@@ -1,0 +1,184 @@
+@import '../../styles/animations.scss';
+
+.noItens{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 30vh;
+
+   svg{
+      margin-bottom: 20px;
+      color: #DB4437;
+   }
+   h1{
+      font-size: 18px;
+      font-weight: normal;
+      text-align: center;
+   }
+}
+.checkoutWrapper {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   margin: 0px 30px 0px 30px;
+   animation: fade-in 0.5s linear;
+
+   .checkoutForm {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      h1 {
+         font-size: 26px;
+         margin-bottom: 30px;
+         font-weight: medium;
+      }
+
+      .fieldsetWrapper{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+      fieldset {
+         all: unset;
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+
+         &.inputSmall {
+            width: 40%;
+         }
+         &.inputMedium {
+            width: 50%;
+         }
+         &.inputMediumLarge {
+            width: 60%;
+         }
+         &.inputLarge {
+            width: 100%;
+         }
+      }
+      fieldset:first-of-type {
+         margin-right: 20px;
+      }
+      .input {
+         height: 40px;
+         padding: 0px 5px 0px 10px;
+         margin-bottom: 15px;
+         border: 2px solid #c5ced6;
+         border-radius: 4px;
+         font-size: 16px;
+         width: 100%;
+
+         &.inputError{
+            border-color: #DB4437;
+         }
+      }
+   }
+   .checkoutItems {
+      width: 100%;
+      margin: 40px 0px;
+
+      table {
+         width: 100%;
+         text-align: left;
+         display: table;
+         border-collapse: collapse;
+
+         th {
+            font-weight: 500;
+            font-size: 15px;
+         }
+         td,
+         th {
+            padding-right: 20px;
+         }
+         td:last-of-type {
+            padding-right: 0px;
+         }
+         tbody {
+            .poster {
+               width: 50px;
+               height: 50px;
+               img {
+                  width: 100%;
+                  height: 100%;
+               }
+            }
+            .quantity{
+               text-align: right;
+            }
+            .price{
+               min-width: 90px;
+            }
+            tr {
+               border-bottom: 2px solid #9eadba;
+               height: 80px;
+            }
+         }
+         tbody:last-of-type tr{
+            border: none;
+         }
+      }
+      .trashIcon {
+         width: 30px;
+         height: 30px;
+         color: #4b5c6b;
+      }
+      
+      .bottom {
+         height: 100px;
+         margin: 40px 0px;
+         .total {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            font-weight: medium;
+
+            p:first-of-type {
+               font-size: 18px;
+               flex-grow: 1;
+            }
+            .totalValue {
+               font-size: 24px;
+               justify-self: flex-end;
+            }
+         }
+      }
+   }
+}
+
+.errorMessage{
+   height: 20px;
+   color: #DB4437;
+}
+
+
+@media screen and (min-width: 900px) {
+   .checkoutWrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+
+      .checkoutForm {
+         width: unset;
+         margin-right: 20px;
+         fieldset {
+            max-width: 420px;
+         }
+         .input {
+            margin-bottom: 15px;
+         }
+      }
+      .checkoutItems {
+         max-width: 420px;
+         margin-top: 90px;
+
+         table tbody .poster {
+            width: 70px;
+            height: 60px;
+         }
+      }
+   }
+}

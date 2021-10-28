@@ -1,3 +1,5 @@
+@import '../styles/animations.scss';
+
 .sideCard {
    height: calc(100vh - 60px);
    width: 100%;
@@ -27,6 +29,11 @@
    -ms-overflow-style: none;
    scrollbar-width: none;
    animation: fade-in 0.5s linear;
+
+   button:active{
+      -webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+      animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+   }
 
    &::-webkit-scrollbar {
       display: none;
@@ -91,9 +98,3 @@
    }
 }
 
-// @media screen and(min-width: 1200px) {
-//    .sideCard{
-//       position: relative;
-//       right: 0;
-//    }
-// }

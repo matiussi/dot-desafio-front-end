@@ -8,6 +8,8 @@ type PropsFavouritesContext = {
    removeFavourite: (movie: Movie) => void;
    clearFavourites: () => void;
    addToShoppingCart: (movie: Movie) => void;
+   favouriteActive: boolean,
+   handleFavouriteActive: (value: boolean) => void;
 }
 
 type FavouritesProvider = {
@@ -19,6 +21,11 @@ const FavouriteContext = createContext({} as PropsFavouritesContext);
 export const FavouriteContextProvider = (props: FavouritesProvider ) =>{
 
    const [favourite, setFavourite] = useState<Movie[] | []>([]);
+   const [favouriteActive, setFavouriteActive] = useState(false);
+
+   function handleFavouriteActive(value: boolean){
+      setFavouriteActive(value);
+   }
 
    function addFavourite(newMovie: Movie){
       const checkDuplicate = favourite.filter(movie => {
@@ -51,6 +58,8 @@ export const FavouriteContextProvider = (props: FavouritesProvider ) =>{
             removeFavourite,
             clearFavourites,
             addToShoppingCart,
+            favouriteActive,
+            handleFavouriteActive
          }}
       >
          {props.children}
