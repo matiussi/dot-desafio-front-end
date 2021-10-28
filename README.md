@@ -26,8 +26,9 @@ O desafio consiste em implementar uma loja de filmes com funcionalidades básica
 
 - [Axios](https://github.com/axios/axios)
 - [React.js](https://pt-br.reactjs.org/)
-- [React Router](https://reactrouter.com/)
 - [React Icons](https://reactrouter.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Router](https://reactrouter.com/)
 - [SASS](https://sass-lang.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
@@ -54,6 +55,10 @@ Este desafio é voltado para a vaga de **Desenvolvedor Front-end Júnior**, por�
 - [❌] Implementação de máscaras nos campos email, celular, CEP e CPF
 - [✔️] Adicionar ou remover itens da lista de favoritos
 
+### Funcionalidades implementadas após a data limite (25/10/2021)
+
+- [Otimização nas requisições e ajustes no sideCard](https://github.com/matiussi/dot-desafio-front-end/commit/f8d90373eb02a66d1bd64c88af1f222c643dd46d)
+- [Criação da página de checkout e ajustes no estilo](https://github.com/matiussi/dot-desafio-front-end/commit/c745505c3d89c96cc0be18938f5e719d94399ad6)
 
 ## Como utilizar 
 
